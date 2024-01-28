@@ -1,9 +1,10 @@
 import 'package:bookly_app/Featuers/home/presentaion/views/home_view.dart';
 import 'package:bookly_app/Featuers/splash/peresentaion/views/widgets/sliding_text.dart';
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets_class.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -63,11 +64,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Get.to(
-          const HomeView(),
-          transition: Transition.circularReveal,
-          duration: ktranstionDuration,
-        );
+        // Get.to(
+        //   const HomeView(),
+        //   transition: Transition.circularReveal,
+        //   duration: ktranstionDuration,
+        // );
+        GoRouter.of(context).push(AppRouter.khomeView);
       },
     );
   }
