@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
         SizedBox(height: 50),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
-            child: Text('Besst Seller', style: Styles.title)),
+            child: Text('Besst Seller', style: Styles.styleText18)),
         BesstSellerListViewItem(),
       ],
     );
