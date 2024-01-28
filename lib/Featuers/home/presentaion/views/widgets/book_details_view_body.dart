@@ -29,7 +29,8 @@ class BookDetailsViewBody extends StatelessWidget {
           const Opacity(
               opacity: .7,
               child: Text('Rudyard Kipling', style: Styles.styleText18)),
-          const BookRating(),
+          const SizedBox(height: 18),
+          const BookRating(mainAxisAlignment: MainAxisAlignment.center),
         ],
       ),
     );
