@@ -12,7 +12,7 @@ class SimlarBookSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('You can also like', style: Styles.styleText18),
-        SizedBox(height: 16),
+        SizedBox(height: 13),
         SimblerBooksListView(),
       ],
     );
