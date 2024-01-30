@@ -1,7 +1,7 @@
 import 'package:bookly_app/Featuers/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/utils/functions/launch_url.dart';
 import 'package:bookly_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({super.key, required this.bookModel});
@@ -14,26 +14,25 @@ class BooksAction extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: CustomButton(
+                onPressed: () {
+                  launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+                },
                 text: 'Free',
                 fontSize: 16.5,
                 backgroundColor: Colors.white,
                 textColor: Colors.black,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(12),
                     bottomLeft: Radius.circular(12))),
           ),
           Expanded(
             child: CustomButton(
-                onPressed: () async {
-                  Uri url = Uri.parse(bookModel.volumeInfo.previewLink!);
-                  if (!await launchUrl(url,
-                      mode: LaunchMode.externalApplication)) {
-                    throw Exception('Could not launch $url');
-                  }
+                onPressed: () {
+                  launchCustomUrl(context, bookModel.volumeInfo.previewLink);
                 },
-                text: 'Preview',
+                text: getText(bookModel),
                 fontSize: 16.5,
                 backgroundColor: const Color(0xffef8262),
                 textColor: Colors.white,
@@ -44,5 +43,13 @@ class BooksAction extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getText(BookModel bookModel) {
+    if (bookModel.volumeInfo.previewLink == null) {
+      return 'Not Avaliable';
+    } else {
+      return 'Free Preview';
+    }
   }
 }
