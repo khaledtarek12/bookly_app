@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 import 'custom_search_text_field.dart';
+import 'search_item_list_view.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
+  const SearchViewBody({
+    super.key,
+  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,26 +30,6 @@ class SearchViewBody extends StatelessWidget {
           Expanded(child: SearchItemListView()),
         ],
       ),
-    );
-  }
-}
-
-class SearchItemListView extends StatelessWidget {
-  const SearchItemListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      padding: EdgeInsets.zero,
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          // child: BookListViewItem(),
-          child: Text('data'),
-        );
-      },
     );
   }
 }

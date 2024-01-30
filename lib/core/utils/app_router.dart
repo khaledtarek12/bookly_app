@@ -24,7 +24,7 @@ abstract class AppRouter {
               create: (context) => SimilarBooksCubit(
                 getIt.get<HomeRepoImplementaion>(),
               ),
-              child: BookDetails(bookModel:state.extra as BookModel ),
+              child: BookDetails(bookModel: state.extra as BookModel),
             )),
   ]);
 }
