@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../home/presentaion/views/widgets/besst_seller_item_view.dart';
 import 'custom_search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {

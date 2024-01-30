@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import 'similar_box_list_view.dart';
+import 'similar_books_list_view.dart';
 
 class SimlarBookSection extends StatelessWidget {
   const SimlarBookSection({super.key});

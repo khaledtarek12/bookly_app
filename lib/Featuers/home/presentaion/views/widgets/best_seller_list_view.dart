@@ -1,10 +1,10 @@
-import 'package:bookly_app/Featuers/home/presentaion/managers/newsest_books/newest_books_cubit.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loding_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'besst_seller_item_view.dart';
+import '../../managers/newsest_books_cubit/newest_books_cubit.dart';
+import 'book_list_item_view.dart';
 
 class NewestBooksListViewBuilder extends StatelessWidget {
   const NewestBooksListViewBuilder({super.key});
