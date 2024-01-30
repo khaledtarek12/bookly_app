@@ -1,14 +1,17 @@
+import 'package:bookly_app/Featuers/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/Featuers/home/presentaion/views/widgets/custom_book_item_image.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets_class.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +27,8 @@ class BookListViewItem extends StatelessWidget {
           ),
           child: Row(
             children: [
-              AspectRatio(
-                  aspectRatio: 2.55 / 4,
-                  child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.red,
-                          image: const DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage(AssetsData.testImage))))),
+              CustomBookImage(
+                  imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
               const SizedBox(
                 width: 30,
               ),
@@ -43,7 +39,7 @@ class BookListViewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .5,
                       child: Text(
-                        'Harry Potter and the Goblet of Fire',
+                        bookModel.volumeInfo.title!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.styleText20
@@ -51,15 +47,16 @@ class BookListViewItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 3),
-                    const Opacity(
+                    Opacity(
                       opacity: .5,
-                      child: Text('J.K. Rowling', style: Styles.styleText14),
+                      child: Text(bookModel.volumeInfo.authors![0],
+                          style: Styles.styleText14),
                     ),
                     const SizedBox(height: 3),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('19.99 €',
+                        Text('Free',
                             style: Styles.styleText20
                                 .copyWith(fontWeight: FontWeight.bold)),
                         const BookRating(),

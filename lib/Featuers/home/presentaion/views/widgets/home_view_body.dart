@@ -21,12 +21,12 @@ class HomeViewBody extends StatelessWidget {
               SizedBox(height: 20),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                  child: Text('Besst Seller', style: Styles.styleText18)),
+                  child: Text('Newest Books', style: Styles.styleText18)),
             ],
           ),
         ),
         SliverToBoxAdapter(
-          child: BesetSellerListViewBuilder(),
+          child: NewestBooksListViewBuilder(),
         )
       ],
     );
